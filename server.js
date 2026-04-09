@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/api/v1/students', studentRoutes);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
     console.log(`🚀 Server spinning on http://localhost:${PORT}`);
     console.log(`📡 Ready to deploy to Home Lab at server.vrabel.me`);
 });
