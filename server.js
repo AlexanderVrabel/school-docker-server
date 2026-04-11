@@ -1,12 +1,14 @@
-﻿const express = require('express');
+require('dotenv').config();
+const express = require('express');
+const cookieParser = require('cookie-parser');
 const studentRoutes = require('./src/routes/students-v1.js');
 const authRoutes = require('./src/routes/auth-v1.js');
 const {auth} = require("google-auth-library");
-require('dotenv').config();
 const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(cookieParser());
 
 // Link the routes
 // This means all routes in student-routes.js start with /api/students

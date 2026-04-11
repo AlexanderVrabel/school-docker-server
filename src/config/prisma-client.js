@@ -1,6 +1,6 @@
-import { Pool } from 'pg';
-import { PrismaPg } from '@prisma/adapter-pg';
-import { PrismaClient } from '../generated/prisma/client';
+const { Pool } = require('pg');
+const { PrismaPg } = require('@prisma/adapter-pg');
+const { PrismaClient } = require('../generated/prisma');
 
 // 1. Setup the connection pool (using your .env URL)
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
@@ -11,4 +11,4 @@ const adapter = new PrismaPg(pool);
 // 3. Create the client using the adapter
 const prisma = new PrismaClient({ adapter });
 
-export default prisma;
+module.exports = prisma;
