@@ -32,7 +32,7 @@ async function deployImage(studentName, options = {}) {
     const { image = "nginx:latest", containerPort = 80 } = options;
     const ns = `student-${studentName.toLowerCase()}`;
     const appName = `${studentName}-app`;
-    const hostName = `${studentName}.lab.local`;
+    const hostName = `${studentName}.${process.env.HOST_NAME}`;
 
     // 1. Create Namespace
     await createNamespace(studentName);
